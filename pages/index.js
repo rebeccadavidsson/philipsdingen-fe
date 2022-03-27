@@ -1,6 +1,7 @@
 import Head from "next/head"
 import ProductsList from "../components/ProductsList"
 import { getProducts } from "../utils/api"
+import ProductsGallery from "../components/ProductsGallery";
 
 const HomePage = ({ products }) => {
   return (
@@ -8,7 +9,7 @@ const HomePage = ({ products }) => {
       <Head>
         <title>Philipsdingen</title>
       </Head>
-      <ProductsList products={products} />
+      <ProductsGallery products={products} />
     </div>
   )
 }

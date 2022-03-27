@@ -16,9 +16,9 @@ const Image = (props) => {
     <NextImage
       loader={loader}
       layout="responsive"
-      objectFit="contain"
-      width={props.media.width}
-      height={props.media.height}
+      objectFit={props.objectFit ? props.objectFit : "contain"}
+      width={props.width ? props.width : props.media.width}
+      height={props.height ? props.height : props.media.height}
       src={url}
       alt={alternativeText || ""}
     />

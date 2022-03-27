@@ -10,13 +10,13 @@ const Navbar = () => {
   return (
     <div className="flex justify-between ml-6 mr-6 mt-4">
       <Link href="/">
-        <a>
+        <a className="xs:w-3/5">
           <NextImage
             src="/logo.png"
             alt="home"
             className="logo"
-            height="100"
-            width="150"
+            height="80"
+            width="250"
           />
         </a>
       </Link>
@@ -24,17 +24,18 @@ const Navbar = () => {
 
       <div>
         <div className="flex items-center">
-          <div className="border rounded-lg bg-gray-100 hover:shadow-lg shadow-md p-3 m-2">
+          <button className="p-3 m-2 text-gray-300 xs:p-0 xs:m-0">
             {user ? (
-              <Link href="/account">{user.email}</Link>
+              <Link href="/account">
+              Account</Link>
             ) : (
-              <Link href="/login">
-                <a> Log in</a>
+              <Link href="/account">
+                <a className={"text-white"}>Log in</a>
               </Link>
             )}
-          </div>
+          </button>
 
-          <button className="snipcart-checkout flex items-center flex-col border rounded-lg bg-gray-100 hover:shadow-lg shadow-md p-3 m-2">
+          <button className="snipcart-checkout flex items-center flex-col p-3 m-2">
             <NextImage height="20" width="20" src="/shopping-cart.png" alt="Cart" />
             {/* <span className="snipcart-total-price font-semibold text-sm text-indigo-500"></span> */}
           </button>

@@ -1,3 +1,18 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.background-image {
+    background-image: url("../public/achter.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body, html {
+    color: rgb(209 213 219);
+}
+
+.title-large {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}

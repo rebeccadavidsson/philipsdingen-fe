@@ -21,6 +21,10 @@ const MyApp = ({ Component, pageProps }) => {
             async
             src="https://cdn.snipcart.com/themes/v3.0.16/default/snipcart.js"
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+
         </Head>
         <Component {...pageProps} />
       </Layout>
@@ -35,7 +39,7 @@ const MyApp = ({ Component, pageProps }) => {
 MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx)
-  console.log(appProps, "appProps");
+
   // Fetch global site settings from Strapi
   const categories = await getCategories()
   // Pass the data to our page via props

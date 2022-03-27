@@ -11,7 +11,7 @@ const Layout = ({ children, categories }) => {
   })
   
   return (
-    <div className="flex justify-center bg-gray-200">
+    <div className="flex justify-center bg-stone-900 font-lato background-image">
       <div className="max-w-screen-lg flex flex-col min-h-screen w-full">
         <Navbar />
         { path !== '/' && <CategoryButtons categories={categories} />}

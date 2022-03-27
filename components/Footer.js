@@ -1,27 +1,22 @@
-import NextImage from "./Image"
-import Link from "next/link"
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 const Footer = () => {
+    const { logoutUser } = useContext(AuthContext)
+
   return (
     <div className="flex justify-between m-6">
-      <p className="text-xs font-semibold text-gray-600">
+      <p className="text-xs font-bold text-white">
         Philip Davidsson - 2022
       </p>
-      <div className="flex gap-3 ml-4">
-        <Link href="/" className="max-w-xs ml-4" passHref>
-          <NextImage src="/twitter.svg" width={20} height={20} alt="Twitter" />
-        </Link>
-        <Link href="/" className="ml-3" passHref>
-          <NextImage
-            src="/facebook.svg"
-            width={20}
-            height={20}
-            alt="Facebook"
-          />
-        </Link>
-        <Link href="/" className="ml-3" passHref>
-          <NextImage src="/github.svg" width={20} height={20} alt="GitHub" />
-        </Link>
+      <div className="flex">
+          <button
+              href="#" onClick={logoutUser}
+              className="w-full px-4 py-2 font-bold text-white bg-yellow-500 opacity-70 hover:opacity-100 rounded hover:bg-yellow-500 focus:outline-none focus:shadow-outline"
+              type="submit"
+          >
+              Logout
+          </button>
       </div>
     </div>
   )
