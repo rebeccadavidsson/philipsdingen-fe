@@ -1,9 +1,12 @@
 import NextImage from "./Image"
 import Link from "next/link"
+import CategoryButtons from './CategoryButtons'
 
 const ProductsList = ({ products }) => {
 
   return (
+    <>
+    <CategoryButtons  />
     <div className="m-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-8">
       {products.map((_product) => (
         <div
@@ -30,6 +33,7 @@ const ProductsList = ({ products }) => {
         </div>
       ))}
     </div>
+    </>
   )
 }
 

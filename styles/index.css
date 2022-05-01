@@ -3,9 +3,10 @@
 @import 'tailwindcss/utilities';
 
 .background-image {
-    background-image: url("../public/achter.png");
-    background-attachment: fixed;
-    background-size: cover;
+
+background-image: url("../public/mesh.png");
+background-attachment: fixed;
+background-size: cover;
 }
 
 body, html {
@@ -15,4 +16,23 @@ body, html {
 .title-large {
     font-size: 1.8em;
     margin-bottom: 0.5em;
+}
+
+.opacity-order {
+    opacity: 0.6;
+}
+
+
+#product-buy-image > div:first-child {
+    border-radius: 4px;
+    filter: drop-shadow(-1px 13px 13px rgba(0,0,0,0.4));
+}
+
+#products-gallery img {
+    border-radius: 3px;
+}
+
+
+.swiper-pagination-bullet {
+    background: rgb(202 138 4) !important;
 }

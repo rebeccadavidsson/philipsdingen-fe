@@ -1,5 +1,6 @@
 import Gallery from 'react-photo-gallery'
 import { API_URL } from '../utils/urls';
+import CategoryButtons from "./CategoryButtons"
 
 const ProductsGallery = ({ products }) => {
 
@@ -7,7 +8,7 @@ const ProductsGallery = ({ products }) => {
   
   products.map((prod) => {
     const newProd = prod;
-    newProd.src = API_URL + prod.image.url;
+    newProd.src = prod.image.url;
     newProd.width = prod.image.width;
     newProd.height = prod.image.height;
     newProducts.push(newProd)
@@ -18,9 +19,12 @@ const ProductsGallery = ({ products }) => {
   }
 
   return (
-    <div className="container mt-8">
-        <Gallery photos={newProducts} direction={"column"} onClick={goToSlug} />
+    <>
+    <CategoryButtons  />
+    <div className="container mt-8" id="products-gallery">
+        <Gallery photos={newProducts} direction={"column"} onClick={goToSlug} margin={10} />
     </div>
+    </>
   )
 }
 

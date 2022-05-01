@@ -21,13 +21,12 @@ const Navbar = () => {
         </a>
       </Link>
 
-
-      <div>
+      {/* Temporary comment out all Account Functionality */}
+      {/* <div>
         <div className="flex items-center">
           <button className="p-3 m-2 text-gray-300 xs:p-0 xs:m-0">
             {user ? (
-              <Link href="/account">
-              Account</Link>
+              <Link href="/account">Account</Link>
             ) : (
               <Link href="/account">
                 <a className={"text-white"}>Log in</a>
@@ -36,11 +35,15 @@ const Navbar = () => {
           </button>
 
           <button className="snipcart-checkout flex items-center flex-col p-3 m-2">
-            <NextImage height="20" width="20" src="/shopping-cart.png" alt="Cart" />
-            {/* <span className="snipcart-total-price font-semibold text-sm text-indigo-500"></span> */}
+            <NextImage
+              height="20"
+              width="20"
+              src="/shopping-cart.png"
+              alt="Cart"
+            />
           </button>
-        </div>  
-      </div>
+        </div>
+      </div> */}
     </div>
   )
 }

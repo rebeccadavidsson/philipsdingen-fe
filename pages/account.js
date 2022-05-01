@@ -1,9 +1,10 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState, useEffect, Component } from "react"
 import NextImage from "../components/Image"
 import Head from "next/head"
 
 import AuthContext from "../context/AuthContext"
 import { API_URL } from "../utils/urls"
+import OrderRow from "../components/OrderRow";
 
 const useOrders = (user, getToken) => {
     const [orders, setOrders] = useState([])
@@ -38,7 +39,6 @@ const useOrders = (user, getToken) => {
 const Account = () => {
     const {user, getToken} = useContext(AuthContext)
     const {orders} = useOrders(user, getToken)
-    console.log(orders)
     const [input, setInput] = useState("")
     const {loginUser} = useContext(AuthContext)
 
@@ -130,37 +130,12 @@ const Account = () => {
                                 <p className="text-gray-500 mb-3">{user.email}</p>
                             </div>
 
-                            {orders.map((order) => (
-                                <div key={order.id}>
-                                    <div className="flex flex-row justify-between">
-                                        <p className="mr-1 font-bold text-gray-900">Order date</p>
-                                        <p className="text-gray-500 mb-4"> {new Date(order.created_at).toLocaleDateString("nl-NL")}{" "}</p>
-                                    </div>
-                                    {order.Status === 'Paid' && <div className="flex flex-row justify-between">
-                                        <p className="mr-1 font-bold text-gray-900">Paid at</p>
-                                        <p className="text-gray-500 mb-4"> {new Date(order.published_at).toLocaleDateString("nl-NL")}{" "}</p>
-                                    </div>}
-                                    <div className="p-6 m-auto h-full w-full flex mb-8 mt-4 rounded-xl bg-stone-100">
-                                        <div className="w-1/2 rounded mr-6">
-                                            <NextImage media={order.product.image} width={40} height={40}/>
-                                        </div>
-                                        <div className="w-full text-left">
-                                            <h4 className="font-semibold text-lg leading-tight truncate text-gray-700 flex justify-between">
-                                                <p className="font-bold text-gray-900">{order.product.title}</p>
-                                                <p className="text-gray-500"> € {order.product.price}</p>
-                                            </h4>
-                                            <div className="mt-1 text-gray-600 mb-2">{order.product.description}</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-row justify-between mt-6 text-lg">
-                                        <p className=" mr-1 font-bold text-gray-900">Total</p>
-                                        <p className="text-gray-500 mb-3 ">€ {order.Total}</p>
-                                    </div>
-                                    {orders.length > 1 && <hr className="mt-4 mb-4"/>}
-                                </div>
-
-                            ))}
+                                {orders.filter((order) => order.Status === 'Unpaid').map((order) => (
+                                    <OrderRow key={order.id} order={order} orders={orders} paid={false}/>
+                                ))}
+                                {orders.filter((order) => order.Status === 'Paid').map((order) => (
+                                    <OrderRow key={order.id} order={order} orders={orders} paid={true}/>
+                                ))}
                             </div> :
                             <div className="mt-8">
                                 <div className="mr-8 mb-4">

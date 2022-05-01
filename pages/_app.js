@@ -3,26 +3,19 @@ import App from "next/app"
 import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
-
+import { loadStripe } from "@stripe/stripe-js";
 import { AuthProvider } from '../context/AuthContext'
+import { STRIPE_PK } from "../utils/urls";
+
 
 const MyApp = ({ Component, pageProps }) => {
+
   return (
     <AuthProvider>
       <Layout categories={pageProps.categories}>
         <Head>
-          <link rel="preconnect" href="https://app.snipcart.com" />
-          <link rel="preconnect" href="https://cdn.snipcart.com" />
-          <link
-            rel="stylesheet"
-            href="https://cdn.snipcart.com/themes/v3.0.16/default/snipcart.css"
-          />
-          <script
-            async
-            src="https://cdn.snipcart.com/themes/v3.0.16/default/snipcart.js"
-          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true} />
           <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
 
         </Head>

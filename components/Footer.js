@@ -6,18 +6,18 @@ const Footer = () => {
 
   return (
     <div className="flex justify-between m-6">
-      <p className="text-xs font-bold text-white">
+      <p className="text-xs font-bold text-gray-400">
         Philip Davidsson - 2022
       </p>
-      <div className="flex">
+      {/* <div className="flex">
           <button
               href="#" onClick={logoutUser}
-              className="w-full px-4 py-2 font-bold text-white bg-yellow-500 opacity-70 hover:opacity-100 rounded hover:bg-yellow-500 focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-2 font-bold text-white opacity-90 hover:opacity-90 rounded "
               type="submit"
           >
               Logout
           </button>
-      </div>
+      </div> */}
     </div>
   )
 }
