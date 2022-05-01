@@ -7,5 +7,4 @@ export const STRIPE_SK = process.env.NEXT_SECRET_STRIPE_SK || 'sk_test_51JNBUnBu
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337"
 
-
-export const NEXT_PUBLIC_STRAPI_API_URL="https://philipsdingen.herokuapp.com"
+export const NEXT_PUBLIC_STRAPI_API_URL='https://philipsdingen.herokuapp.com'

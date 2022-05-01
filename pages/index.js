@@ -1,11 +1,9 @@
-import Head from "next/head"
 import { getProducts } from "../utils/api"
-import ProductsGallery from "../components/ProductsGallery"
 import Link from "next/link"
 import NextImage from "../components/Image"
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper"
+import { EffectCoverflow, EffectCube, Pagination, Autoplay } from "swiper"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -13,60 +11,137 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
+import "swiper/css/effect-cube";
 import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
+import useWindowDimensions from "../utils/useWindowDimensions";
 
-const HomePage = ({ products }) => {
-  return (
-    <div className="mt-24 h-auto container">
-      <h2 className="title-large text-left text-gray-100 ">Titel van mijn galerij</h2>
-      <p className="text-left text-gray-400 w-auto ">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
-      <div id="swiper-wrapper" className="h-full mt-12">
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={3}
-          loop={true}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination]}
-        >
-          {products.map((_product) => (
-            <SwiperSlide key={_product.id}>
-              <Link href={`/products/${_product.slug}`}>
-                <NextImage
-                  media={_product.image}
-                  height={1600}
-                  width={1300}
-                  objectFit={"cover"}
-                />
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
-  )
+const HomePage = ({products}) => {
+
+    const {width} = useWindowDimensions();
+
+    function getElements() {
+        return <>
+            {products.map((_product) => (
+                <SwiperSlide key={_product.id}>
+                    <Link href={`/products/${_product.slug}`}>
+                        <NextImage
+                            media={_product.image}
+                            height={1600}
+                            width={1300}
+                            objectFit={"cover"}
+                        />
+                    </Link>
+                </SwiperSlide>
+            ))}
+        </>;
+    };
+
+    return (
+        <div className="md:mt-24 mt-2 h-auto container">
+            <h2 className="title-large text-left text-gray-100 ">Titel van mijn galerij</h2>
+            <p className="text-left text-gray-400 w-auto ">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </p>
+            <div id="swiper-wrapper" className="h-full mt-12">
+                <div className="md:hidden">
+                    <Swiper
+                        effect={"cube"}
+                        grabCursor={true}
+                        centeredSlides={true}
+                        loop={true}
+                        cubeEffect={{
+                            shadow: true,
+                            slideShadows: true,
+                            shadowOffset: 20,
+                            shadowScale: 0.94,
+                        }}
+                        autoplay={{
+                            delay: 4000,
+                            disableOnInteraction: false
+                        }}
+                        pagination={true}
+                        modules={[EffectCube, Autoplay, Pagination]}
+                    >
+                        {getElements()}
+                    </Swiper>
+                    <div className="flex justify-end mt-6">
+                        <NextImage width={25} height={25} src={'/swipe-to-right.png'}/>
+                    </div>
+                </div>
+                <div className="hidden md:block">
+                    <Swiper
+                        effect={"coverflow"}
+                        grabCursor={true}
+                        centeredSlides={true}
+                        slidesPerView={3}
+                        loop={true}
+                        coverflowEffect={{
+                            rotate: 50,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }}
+                        pagination={true}
+                        modules={[EffectCoverflow, Pagination]}
+                    >
+                        {getElements()}
+                    </Swiper>
+                </div>
+            </div>
+
+
+            <section className="mt-32 md:mt-64 px-0 md:px-12" id="section-homepage">
+                <div
+                    className="justify-center h-full flex grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <div className="md:col-span-2 shadow-image">
+                        <NextImage src={'/hoofd-robot.jpeg'} height={500} width={500}/>
+                    </div>
+
+                    <div className="w-full h-full md:col-span-1">
+                        <h1 className="title-large text-zinc-600">Titel van deze tekst</h1>
+                        <p className="text-zinc-500">
+                            Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="mt-32 md:mt-64 px-0 md:px-12" id="section-homepage">
+                <div
+                    className="justify-center h-full flex grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <div className="w-full h-full md:col-span-1">
+                        <h1 className="title-large text-zinc-600">Titel van deze tekst</h1>
+                        <p className="text-zinc-500">
+                            Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
+                        </p>
+                    </div>
+                    <div className="md:col-span-2 shadow-image">
+                        <NextImage src={'/hoofd-robot.jpeg'} height={500} width={500}/>
+                    </div>
+                </div>
+            </section>
+        </div>
+    )
 }
 
 export async function getStaticProps() {
-  const products = await getProducts()
-  return { props: { products } }
+    const products = await getProducts()
+    return {props: {products}}
 }
 
 export default HomePage

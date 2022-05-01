@@ -14,7 +14,7 @@ const Layout = ({ children, categories }) => {
       <div className="max-w-screen-lg flex flex-col min-h-screen w-full">
         <NavbarTest />
     
-        <div className="flex-grow">{children}</div>
+        <div className="flex-grow container">{children}</div>
         <Footer />
       </div>
     </div>
