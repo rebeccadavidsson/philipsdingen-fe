@@ -3,11 +3,32 @@
 @import 'tailwindcss/utilities';
 
 .background-image {
-
-background-image: url("../public/mesh.png");
-background-attachment: fixed;
-background-size: cover;
+    background-image: url("../public/mesh.png");
+    background-attachment: fixed;
+    background-size: cover;
 }
+
+.blur-background {
+    position: absolute;
+    background-image: url(../public/circles2.png);
+    width: -webkit-fill-available;
+    position: absolute;
+    height: -webkit-fill-available;
+    top: 0;
+    background-size: cover;
+    left: 0;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/*#section-homepage::before  {*/
+/*    content: "";*/
+/*    background-image: url(../public/yellow-circles.png);*/
+/*    background-size: contain;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: top right;*/
+/*}*/
+
 
 body, html {
     color: rgb(209 213 219);
@@ -39,4 +60,3 @@ body, html {
 .swiper-pagination-bullet {
     background: rgb(202 138 4) !important;
 }
-

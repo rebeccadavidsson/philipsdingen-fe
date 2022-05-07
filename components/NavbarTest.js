@@ -1,15 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import Link from "next/link"
 import NextImage from "./Image"
 import { useRouter } from "next/router";
 
-export default function NavbarTest({ fixed }) {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
+export default function NavbarTest() {
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const router = useRouter()
 
   const goToPage = async (link) => {
     router.push(link);
+    setNavbarOpen(false);
   }
 
   return (
@@ -46,10 +47,10 @@ export default function NavbarTest({ fixed }) {
               (navbarOpen ? " flex" : " hidden")
             }
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <ul className={"flex flex-col lg:flex-row list-none lg:ml-auto " + (navbarOpen &&  "bg-yellow-500 rounded")}>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs uppercase leading-snug text-white hover:opacity-75 hover:cursor-pointer"
+                  className="px-4 py-2 flex items-center text-xs uppercase leading-snug text-white hover:opacity-75 hover:cursor-pointer"
                   onClick={() => goToPage('/over-mij')}
                 >
                   <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">OVER MIJ</span>
@@ -57,7 +58,7 @@ export default function NavbarTest({ fixed }) {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs uppercase leading-snug text-white hover:opacity-75 hover:cursor-pointer"
+                  className="px-4 py-2 flex items-center text-xs uppercase leading-snug text-white hover:opacity-75 hover:cursor-pointer"
                   onClick={() => goToPage('/galerij')}
                 >
                   <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">GALERIJ</span>

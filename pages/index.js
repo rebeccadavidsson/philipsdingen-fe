@@ -14,11 +14,8 @@ import "swiper/css/pagination"
 import "swiper/css/effect-cube";
 import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
-import useWindowDimensions from "../utils/useWindowDimensions";
 
 const HomePage = ({products}) => {
-
-    const {width} = useWindowDimensions();
 
     function getElements() {
         return <>
@@ -35,7 +32,7 @@ const HomePage = ({products}) => {
                 </SwiperSlide>
             ))}
         </>;
-    };
+    }
 
     return (
         <div className="md:mt-24 mt-2 h-auto container">
@@ -97,10 +94,10 @@ const HomePage = ({products}) => {
 
             <section className="mt-32 md:mt-64 px-0 md:px-12" id="section-homepage">
                 <div
-                    className="justify-center h-full flex grid grid-cols-1 md:grid-cols-3 gap-8">
+                    className="justify-center h-full flex grid grid-cols-1 md:grid-cols-2 gap-16">
 
-                    <div className="md:col-span-2 shadow-image">
-                        <NextImage src={'/hoofd-robot.jpeg'} height={500} width={500}/>
+                    <div className="md:col-span-1 shadow-image">
+                        <NextImage src={'/hoofd-robot.jpeg'} height={400} width={400}/>
                     </div>
 
                     <div className="w-full h-full md:col-span-1">
@@ -118,7 +115,7 @@ const HomePage = ({products}) => {
 
             <section className="mt-32 md:mt-64 px-0 md:px-12" id="section-homepage">
                 <div
-                    className="justify-center h-full flex grid grid-cols-1 md:grid-cols-3 gap-8">
+                    className="justify-center h-full flex grid grid-cols-1 md:grid-cols-2 gap-16">
 
                     <div className="w-full h-full md:col-span-1">
                         <h1 className="title-large text-zinc-600">Titel van deze tekst</h1>
@@ -130,7 +127,7 @@ const HomePage = ({products}) => {
                             commodo consequat.
                         </p>
                     </div>
-                    <div className="md:col-span-2 shadow-image">
+                    <div className="md:col-span-1 shadow-image">
                         <NextImage src={'/hoofd-robot.jpeg'} height={500} width={500}/>
                     </div>
                 </div>

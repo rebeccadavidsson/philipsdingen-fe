@@ -1,16 +1,22 @@
-import NextImage from "../components/Image"
-
 const AboutPage = () => {
+
   return (
     <>
-      <div class="container mx-auto pt-24">
+      <div className="container mx-auto pt-24">
         <div>
-          <div class="flex grid-cols-2">
+          <div className="grid-cols-1 md:flex md:grid-cols-2 relative gap-4">
+            <div className="md:hidden w-full md:w-2/3 justify-right relative flex-col ">
+              <img
+                  src="https://res.cloudinary.com/dsbvl9mtl/image/upload/v1651395255/philip_zizmok.jpg"
+                  alt="philip"
+                  className="rounded justify-right"
+              />
+            </div>
             <div className="flex flex-col w-full lg:w-2/5 p-4">
               <p className="text-2xl md:text-3xl text-yellow-500 leading-relaxed md:leading-snug">
                 Philip Davidsson
               </p>
-              <p className="font-sans text-sm md:text-lg my-2 md:my-4">
+              <p className="font-sans text-sm md:text-md my-2 md:my-3">
                 <svg
                   className="inline-block fill-current mr-2"
                   xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +28,7 @@ const AboutPage = () => {
                 </svg>
                 Hilversum
               </p>
-              <p className="font-sans text-sm md:text-lg my-2 md:my-4">
+              <p className="font-sans text-sm md:text-md my-2 md:my-3">
                 <svg
                   className="inline-block fill-current mr-2"
                   xmlns="http://www.w3.org/2000/svg"
@@ -34,18 +40,17 @@ const AboutPage = () => {
                 </svg>{" "}
                 davidssonphilipjohan@gmail.com
               </p>
-              <br /> <br />
-              <p className="font-sans text-sm md:text-lg my-2 md:my-4">
+              <p className="font-sans text-sm md:text-md my-2 md:my-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div class="w-2/3 justify-right relative">
-              <img
-                src="https://res.cloudinary.com/dsbvl9mtl/image/upload/v1651395255/philip_zizmok.jpg"
-                alt="philip"
-                className="rounded"
-              />
+            <div className="hidden md:block w-full md:w-2/3 justify-right relative flex-col ">
+                <img
+                  src="https://res.cloudinary.com/dsbvl9mtl/image/upload/v1651395255/philip_zizmok.jpg"
+                  alt="philip"
+                  className="rounded justify-right"
+                />
             </div>
           </div>
         </div>

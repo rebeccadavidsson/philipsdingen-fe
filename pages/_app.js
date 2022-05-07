@@ -3,16 +3,22 @@ import App from "next/app"
 import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
-import { loadStripe } from "@stripe/stripe-js";
 import { AuthProvider } from '../context/AuthContext'
-import { STRIPE_PK } from "../utils/urls";
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
 
 
 const MyApp = ({ Component, pageProps }) => {
+  const [background, setBackground] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    router.pathname === '/over-mij' ? setBackground("blur-background") : setBackground("");
+  }, [router])
 
   return (
     <AuthProvider>
-      <Layout categories={pageProps.categories}>
+      <Layout categories={pageProps.categories} background={background}>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true} />
@@ -36,7 +42,7 @@ MyApp.getInitialProps = async (ctx) => {
   // Fetch global site settings from Strapi
   const categories = await getCategories()
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { categories, path: ctx.pathname } }
+  return { ...appProps, pageProps: { categories, path: ctx?.router?.route } }
 }
 
 export default MyApp
