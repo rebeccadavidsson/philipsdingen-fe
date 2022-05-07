@@ -11,7 +11,7 @@ const ProductsList = ({ products }) => {
       {products.map((_product) => (
         <div
           key={_product.id}
-          className="rounded-md bg-gray-100 hover:shadow-lg shadow-md"
+          className="rounded-md bg-gray-100 hover:shadow-lg shadow-md yellow-line-vertical relative"
         >
           <Link href={`/products/${_product.slug}`}>
             <a>
@@ -20,7 +20,7 @@ const ProductsList = ({ products }) => {
                   <NextImage media={_product.image} height={1700} width={1300} objectFit={"cover"}/>
                 </div>
               </div>
-              <div className="pl-4 pr-4 pb-4 pt-4 rounded-md yellow-line-vertical relative">
+              <div className="pl-4 pr-4 pb-4 pt-4 rounded-md relative">
                 <h4 className="mt-1 font-semibold text-base leading-tight truncate text-gray-700">
                   {_product.title}
                 </h4>
