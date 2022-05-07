@@ -11,9 +11,8 @@
 .blur-background {
     position: absolute;
     background-image: url(../public/circles2.png);
-    width: -webkit-fill-available;
-    position: absolute;
-    height: -webkit-fill-available;
+    width: 100%;
+    height: calc(100vh + 20px);
     top: 0;
     background-size: cover;
     left: 0;
@@ -21,13 +20,28 @@
     z-index: -1;
 }
 
-/*#section-homepage::before  {*/
-/*    content: "";*/
-/*    background-image: url(../public/yellow-circles.png);*/
-/*    background-size: contain;*/
-/*    background-repeat: no-repeat;*/
-/*    background-position: top right;*/
-/*}*/
+.section-with-background {
+    position: relative;
+}
+
+@media screen and (min-width: 770px) {
+    .section-with-background::before {
+        content: "";
+        background-image: url(../public/circles3.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top right;
+        opacity: 0.9;
+        position: absolute;
+        width: 1000px;
+        transform: scale(1.2);
+        height: 500px;
+        right: 0;
+        top: -50px;
+        z-index: 0;
+    }
+}
+
 
 
 body, html {
@@ -44,7 +58,7 @@ body, html {
 }
 
 .shadow-image span:last-child {
-   box-shadow: 0px 5px 20px 6px rgba(0,0,0,0.43)
+   box-shadow: 0 5px 20px 6px rgba(0,0,0,0.43)
 }
 
 #product-buy-image > div:first-child {
@@ -59,4 +73,27 @@ body, html {
 
 .swiper-pagination-bullet {
     background: rgb(202 138 4) !important;
+}
+
+
+.yellow-line-vertical::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    background-color: rgb(234, 179, 8);
+    background: linear-gradient(180deg, rgba(48,48,48,0) 0%, rgba(234, 179, 8,0.9472382703081232) 100%);
+    width: 4px;
+    height: 40px;
+}
+
+.animated-shapes {
+    background-image: url("../public/animated_shapes.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 900px;
 }
