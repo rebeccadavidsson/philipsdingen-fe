@@ -6,7 +6,7 @@ import { getCategories, getCategory } from "../../utils/api"
 const CategoryPage = ({ category }) => {
   const router = useRouter()
   if (router.isFallback) {
-    return <div>Loading category...</div>
+    return <div>Afbeeldingen laden...</div>
   }
 
   return (

@@ -13,7 +13,7 @@ const AboutPage = () => {
               />
             </div>
             <div className="flex flex-col w-full lg:w-2/5 p-4">
-              <p className="text-2xl md:text-3xl text-yellow-500 leading-relaxed md:leading-snug">
+              <p className="text-2xl md:text-3xl font-bold text-yellow-500 leading-relaxed md:leading-snug">
                 Philip Davidsson
               </p>
               <p className="font-sans text-sm md:text-md my-2 md:my-3">

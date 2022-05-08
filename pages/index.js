@@ -126,17 +126,29 @@ const HomePage = ({products}) => {
 
                     <Fade bottom cascade>
                         <div className="relative w-full h-full md:col-span-1">
-                            <h1 className="title-large  text-zinc-300 md:text-right">Coole tekeningen</h1>
+                            <h1 className="title-large text-zinc-300 md:text-right">Coole tekeningen</h1>
                             <p className="text-zinc-400 md:text-right">
                                 Tekening van mijn hoofd met een geweer of een extra paar
                                 hersenen want die heb ik wel nodig.
                                 Ik teken veel mensen want dat vind ik leuk.
                             </p>
+                            <div
+                                className={"hidden md:block float-right mt-8 w-auto justify-end px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:shadow-outline hover:cursor-pointer"}>
+                                <Link href="/galerij">
+                                    <span>Bekijk alles</span>
+                                </Link>
+                            </div>
                         </div>
                     </Fade>
                     <div className="md:col-span-1 shadow-image">
                         <NextImage src={'/hoofd-robot.jpeg'} height={500} width={500}/>
                     </div>
+                </div>
+                <div
+                    className={"md:hidden block mt-8 float-right w-auto justify-end px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:shadow-outline hover:cursor-pointer"}>
+                    <Link href="/galerij">
+                        <span>Bekijk alles</span>
+                    </Link>
                 </div>
             </section>
 
