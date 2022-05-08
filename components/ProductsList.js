@@ -11,7 +11,7 @@ const ProductsList = ({ products }) => {
       {products.map((_product) => (
         <div
           key={_product.id}
-          className="rounded-md bg-gray-100 hover:shadow-lg shadow-md yellow-line-vertical relative"
+          className="rounded-md bg-gray-100 hover:shadow-lg shadow-md relative"
         >
           <Link href={`/products/${_product.slug}`}>
             <a>

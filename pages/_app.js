@@ -3,12 +3,12 @@ import App from "next/app"
 import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
-import { AuthProvider } from '../context/AuthContext'
+// import { AuthProvider } from '../context/AuthContext'
 
 const MyApp = ({ Component, pageProps }) => {
 
   return (
-    <AuthProvider>
+    <>
       <Layout categories={pageProps.categories}>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@ const MyApp = ({ Component, pageProps }) => {
         </Head>
         <Component {...pageProps} />
       </Layout>
-    </AuthProvider>
+    </>
   )
 }
 

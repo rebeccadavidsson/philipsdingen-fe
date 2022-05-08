@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 
 const Footer = () => {
-    const { logoutUser } = useContext(AuthContext)
+    // const { logoutUser } = useContext(AuthContext)
 
   return (
     <div className="flex justify-between m-6">

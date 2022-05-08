@@ -37,14 +37,14 @@ const useOrders = (user, getToken) => {
 }
 
 const Account = () => {
-    const {user, getToken} = useContext(AuthContext)
-    const {orders} = useOrders(user, getToken)
+    // const {user, getToken} = useContext(AuthContext)
+    // const {orders} = useOrders(user, getToken)
     const [input, setInput] = useState("")
-    const {loginUser} = useContext(AuthContext)
+    // const {loginUser} = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        loginUser(input)
+        // loginUser(input)
     }
 
     if (!user) {

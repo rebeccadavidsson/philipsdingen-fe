@@ -16,11 +16,8 @@ import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
 
 import Fade from 'react-reveal/Fade';
-import { initialProduct } from "../utils/initialProduct";
 
 const HomePage = ({products}) => {
-
-    products = [initialProduct, ...products];
 
     function getElements() {
         return <>
@@ -28,8 +25,7 @@ const HomePage = ({products}) => {
                 <SwiperSlide key={_product.id}>
                     <Link href={`/products/${_product.slug}`}>
                         <NextImage
-                            media={_product.overrideImage ? undefined : _product.image}
-                            src={_product.overrideImage ? _product.src : undefined}
+                            media={_product.image}
                             height={1600}
                             width={1300}
                             objectFit={"cover"}

@@ -14,42 +14,42 @@ const ProductPage = ({product}) => {
         return <div>Loading product...</div>
     }
 
-    let path = '/';
+    // let path = '/';
 
-    const [clientSecret, setClientSecret] = useState("");
+    // const [clientSecret, setClientSecret] = useState("");
     const [showModal, setShowModal] = useState(false);
 
     const handleSetModal = (newValue) => {
         setShowModal(newValue);
     }
 
-    const {user, getToken} = useContext(AuthContext);
+    // const {user, getToken} = useContext(AuthContext);
 
-    async function handleUseProduct(product) {
-        if (clientSecret) {
-            setShowModal(true)
-            return;
-        }
-        path = window.location.href;
-
-        if (user) {
-            const token = await getToken();
-            console.log('creating session')
-            console.log(product)
-            // Create PaymentIntent as soon as the page loads
-            await fetch(`${API_URL}/orders/`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({product: {id: product.id, name: product.name}}),
-            })
-                .then((res) => res.json())
-                .then((data) => setClientSecret(data.clientSecret))
-                .then(setShowModal(true));
-        }
-    }
+    // async function handleUseProduct(product) {
+    //     if (clientSecret) {
+    //         setShowModal(true)
+    //         return;
+    //     }
+    //     path = window.location.href;
+    //
+    //     if (user) {
+    //         const token = await getToken();
+    //         console.log('creating session')
+    //         console.log(product)
+    //         // Create PaymentIntent as soon as the page loads
+    //         await fetch(`${API_URL}/orders/`, {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 'Authorization': `Bearer ${token}`
+    //             },
+    //             body: JSON.stringify({product: {id: product.id, name: product.name}}),
+    //         })
+    //             .then((res) => res.json())
+    //             .then((data) => setClientSecret(data.clientSecret))
+    //             .then(setShowModal(true));
+    //     }
+    // }
 
     return (
         <div className="m-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-8">
