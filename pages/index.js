@@ -16,8 +16,11 @@ import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
 
 import Fade from 'react-reveal/Fade';
+import { initialProduct } from "../utils/initialProduct";
 
 const HomePage = ({products}) => {
+
+    products = [initialProduct, ...products];
 
     function getElements() {
         return <>
@@ -25,7 +28,8 @@ const HomePage = ({products}) => {
                 <SwiperSlide key={_product.id}>
                     <Link href={`/products/${_product.slug}`}>
                         <NextImage
-                            media={_product.image}
+                            media={_product.overrideImage ? undefined : _product.image}
+                            src={_product.overrideImage ? _product.src : undefined}
                             height={1600}
                             width={1300}
                             objectFit={"cover"}
@@ -40,7 +44,7 @@ const HomePage = ({products}) => {
         <div className="md:mt-24 mt-2 h-auto container">
             <div>
                 <h2 className="title-large text-left text-gray-100 ">Titel van mijn galerij</h2>
-                <p className="text-left text-gray-400 w-auto ">
+                <p className="text-left text-zinc-100 w-auto ">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -106,14 +110,11 @@ const HomePage = ({products}) => {
 
                     <div className="w-full h-full md:col-span-1 flex">
                         <Fade bottom cascade>
-                            <div className={"relative w-full h-full m-auto lg:m-0 lg:w-2/3 lg:mt-8"}>
-                                <h1 className="title-large text-zinc-600">Bos Bloemen</h1>
-                                <p className="text-zinc-500">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.
+                            <div className={"relative w-full h-full m-auto lg:m-0 lg:w-2/3 lg:mt-8 text-left"}>
+                                <h1 className="title-large text-zinc-300">Bos Bloemen</h1>
+                                <p className="text-zinc-400">
+                                    Stiekem bestaat dit schilderij al uit tienduizend schilderijen omdat
+                                    ik altijd over mijn schilderijen heen schilder.
                                 </p>
                             </div>
                         </Fade>
@@ -121,19 +122,19 @@ const HomePage = ({products}) => {
                 </div>
             </section>
 
-            <section className="mt-32 md:mt-64 px-0 md:px-12 mb-12" id="section-homepage">
+            <div className={"animated-shapes-under"}></div>
+
+            <section className="relative mt-32 md:mt-64 px-0 md:px-12 mb-12" id="section-homepage">
                 <div
                     className="justify-center h-full flex grid grid-cols-1 md:grid-cols-2 gap-16">
 
                     <Fade bottom cascade>
                         <div className="relative w-full h-full md:col-span-1">
-                            <h1 className="title-large text-zinc-600">Coole tekeningen</h1>
-                            <p className="text-zinc-500">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.
+                            <h1 className="title-large  text-zinc-300 md:text-right">Coole tekeningen</h1>
+                            <p className="text-zinc-400 md:text-right">
+                                Tekening van mijn hoofd met een geweer of een extra paar
+                                hersenen want die heb ik wel nodig.
+                                Ik teken veel mensen want dat vind ik leuk.
                             </p>
                         </div>
                     </Fade>
@@ -142,6 +143,7 @@ const HomePage = ({products}) => {
                     </div>
                 </div>
             </section>
+
         </div>
     )
 }

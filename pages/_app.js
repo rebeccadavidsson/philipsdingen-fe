@@ -4,21 +4,12 @@ import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
 import { AuthProvider } from '../context/AuthContext'
-import { useEffect, useState } from "react";
-import { useRouter } from 'next/router'
-
 
 const MyApp = ({ Component, pageProps }) => {
-  const [background, setBackground] = useState("");
-  const router = useRouter();
-
-  useEffect(() => {
-    router.pathname === '/over-mij' ? setBackground("blur-background") : setBackground("");
-  }, [router])
 
   return (
     <AuthProvider>
-      <Layout categories={pageProps.categories} background={background}>
+      <Layout categories={pageProps.categories}>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true} />

@@ -1,11 +1,8 @@
 import Gallery from 'react-photo-gallery'
-import { API_URL } from '../utils/urls';
 import CategoryButtons from "./CategoryButtons"
 
 const ProductsGallery = ({ products }) => {
 
-  const newProducts = [];
-  
   products.map((prod) => {
     const newProd = prod;
     newProd.src = prod.image.url;
