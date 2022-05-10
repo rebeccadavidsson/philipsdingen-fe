@@ -8,7 +8,7 @@ export default function NavbarTest() {
 
   const router = useRouter()
 
-  const goToPage = async (link) => {
+  const goToPage = (link) => {
     setNavbarOpen(false);
     router.push(link);
   }

@@ -1,8 +1,17 @@
-export const initialProduct =
+export const HomePageProducts = [
     {
-        "id": 28,
-        "overrideImage": true,
-        "src": "/bloemen-min.png",
-        "slug": "groen",
-        "status": "published",
-    }
+        id: 1,
+        src: '/bloemen.png',
+        priority: true
+    },
+    {
+        id: 2,
+        src: '/steen.png',
+        priority: false
+    },
+    {
+        id: 3,
+        src: '/groen.png',
+        priority: false
+    },
+]

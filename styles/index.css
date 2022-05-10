@@ -8,39 +8,9 @@
     background-size: cover;
 }
 
-.blur-background {
-    position: absolute;
-    background-image: url(../public/circles2.png);
-    width: 100%;
-    height: calc(100vh + 20px);
-    top: 0;
-    background-size: cover;
-    left: 0;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-
 .section-with-background {
     position: relative;
 }
-
-/*@media screen and (min-width: 770px) {*/
-/*    .section-with-background::before {*/
-/*        content: "";*/
-/*        background-image: url(../public/circles3.svg);*/
-/*        background-size: contain;*/
-/*        background-repeat: no-repeat;*/
-/*        background-position: top right;*/
-/*        opacity: 0.9;*/
-/*        position: absolute;*/
-/*        width: 1000px;*/
-/*        transform: scale(1.2);*/
-/*        height: 500px;*/
-/*        right: 0;*/
-/*        top: -50px;*/
-/*        z-index: 0;*/
-/*    }*/
-/*}*/
 
 
 body, html {
@@ -73,6 +43,13 @@ body, html {
 .swiper-pagination-bullet {
     background: rgb(202 138 4) !important;
 }
+.swiper-container {
+    width: 100%;
+}
+#swiper-wrapper {
+    width: 110%;
+    margin-left: -5%;
+}
 
 
 .yellow-line-vertical::after {
@@ -90,7 +67,7 @@ body, html {
     background-image: url("../public/animated_shapes.svg");
     background-repeat: no-repeat;
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.65;
     top: 0;
     left: 0;
     width: 100vw;

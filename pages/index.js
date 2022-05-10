@@ -16,21 +16,22 @@ import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
 
 import Fade from 'react-reveal/Fade';
+import { HomePageProducts } from "../utils/initialProduct";
 
-const HomePage = ({products}) => {
+const HomePage = () => {
 
     function getElements() {
         return <>
-            {products.map((_product) => (
+            {HomePageProducts.map((_product) => (
                 <SwiperSlide key={_product.id}>
-                    <Link href={`/products/${_product.slug}`}>
-                        <NextImage
-                            media={_product.image}
-                            height={1600}
-                            width={1300}
-                            objectFit={"cover"}
-                        />
-                    </Link>
+                    <NextImage
+                        blurDataURL={_product.src}
+                        src={_product.src}
+                        height={1600}
+                        width={1300}
+                        objectFit={"cover"}
+                        priority={true}
+                    />
                 </SwiperSlide>
             ))}
         </>;
@@ -60,7 +61,7 @@ const HomePage = ({products}) => {
                                 shadowScale: 0.94,
                             }}
                             autoplay={{
-                                delay: 4000,
+                                delay: 15500,
                                 disableOnInteraction: false
                             }}
                             pagination={true}
@@ -101,7 +102,7 @@ const HomePage = ({products}) => {
                     className="justify-center h-full flex grid grid-cols-1 md:grid-cols-2 gap-16">
 
                     <div className="md:col-span-1 shadow-image">
-                        <NextImage src={'/bloemen-min.png'} height={600} width={400}/>
+                        <NextImage src={'/bloemen.png'} height={600} width={400}/>
                     </div>
 
                     <div className="w-full h-full md:col-span-1 flex">
@@ -141,7 +142,7 @@ const HomePage = ({products}) => {
                         </div>
                     </Fade>
                     <div className="md:col-span-1 shadow-image">
-                        <NextImage src={'/hoofd-robot.jpeg'} height={500} width={500}/>
+                        <NextImage blurDataURL={'/hoofd-robot.jpeg'} src={'/hoofd-robot.jpeg'} height={500} width={500}/>
                     </div>
                 </div>
                 <div
