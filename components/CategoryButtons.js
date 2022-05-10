@@ -8,7 +8,13 @@ const CategoryButtons = ({categories = []}) => {
     const router = useRouter()
 
     useEffect(() => {
-        setActiveCategory(router.asPath.split('/').at(-1));
+        const path = router.asPath;
+        if (path && path.includes('categories')) {
+            const splitPath = path.split('/');
+            if (splitPath) {
+                setActiveCategory(router.asPath.split('/')[2]);
+            }
+        }
     });
 
     if (categories.length <= 0) {
