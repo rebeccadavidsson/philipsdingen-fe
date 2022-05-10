@@ -35,7 +35,7 @@ export default function NavbarTest() {
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
 
-            <svg className="h-8 w-8 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-8 w-8 text-black"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
             </svg>
 
@@ -47,13 +47,13 @@ export default function NavbarTest() {
               (navbarOpen ? " flex" : " hidden")
             }
           >
-            <ul className={"flex flex-col lg:flex-row list-none lg:ml-auto " + (navbarOpen &&  "bg-yellow-500 rounded")}>
+            <ul className={"flex flex-col lg:flex-row list-none lg:ml-auto "}>
               <li className="nav-item">
                 <a
                   className="px-4 py-2 flex items-center text-xs uppercase leading-snug text-white hover:opacity-75 hover:cursor-pointer"
                   onClick={() => goToPage('/over-mij')}
                 >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">OVER MIJ</span>
+                  <i className="text-lg leading-lg opacity-75"></i><span className="text-gray-800 ml-2">OVER MIJ</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -61,7 +61,7 @@ export default function NavbarTest() {
                   className="px-4 py-2 flex items-center text-xs uppercase leading-snug text-white hover:opacity-75 hover:cursor-pointer"
                   onClick={() => goToPage('/galerij')}
                 >
-                  <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">GALERIJ</span>
+                  <i className="text-lg leading-lg opacity-75"></i><span className="text-gray-800 ml-2">GALERIJ</span>
                 </a>
               </li>
             </ul>

@@ -2,7 +2,7 @@ export const HomePageProducts = [
     {
         id: 1,
         src: '/bloemen.png',
-        priority: true
+        priority: true,
     },
     {
         id: 2,

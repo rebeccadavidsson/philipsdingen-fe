@@ -20,11 +20,6 @@ const CategoryButtons = ({categories = []}) => {
     if (categories.length <= 0) {
         categories = [
             {
-                slug: 'kleur',
-                name: 'Kleur',
-                id: 9
-            },
-            {
                 slug: 'schilderij',
                 name: 'Schilderij',
                 id: 8
@@ -58,7 +53,7 @@ const CategoryButtons = ({categories = []}) => {
                       key={_category.id}>
                     <a
                         onClick={() => setActiveCategory(_category.slug)}
-                        className={"px-4 py-2 bg-transparent font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:shadow-outline " + (activeCategory === _category.slug && 'bg-yellow-600')}>
+                        className={"px-4 py-2 bg-transparent font-bold text-zinc-700 rounded underline-animation " + (activeCategory === _category.slug && 'underline')}>
                         {_category.name}
                     </a>
                 </Link>

@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .background-image {
-    background: #3a3a3a;
+    background: #f2f2f2;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -35,20 +35,11 @@ body, html {
     filter: drop-shadow(-1px 13px 13px rgba(0,0,0,0.4));
 }
 
-#products-gallery img {
-    border-radius: 3px;
-}
-
-
 .swiper-pagination-bullet {
     background: rgb(202 138 4) !important;
 }
 .swiper-container {
     width: 100%;
-}
-#swiper-wrapper {
-    width: 110%;
-    margin-left: -5%;
 }
 
 
@@ -67,7 +58,7 @@ body, html {
     background-image: url("../public/animated_shapes.svg");
     background-repeat: no-repeat;
     position: absolute;
-    opacity: 0.65;
+    opacity: 0.85;
     top: 0;
     left: 0;
     width: 100vw;
@@ -83,4 +74,28 @@ body, html {
     left: 0;
     width: 100vw;
     height: 900px;
+}
+
+
+.underline-animation {
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+}
+
+.underline-animation:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: rgb(63 63 70);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.underline-animation:hover:after {
+    width: 100%;
+    left: 0;
 }

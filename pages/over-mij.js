@@ -13,10 +13,10 @@ const AboutPage = () => {
               />
             </div>
             <div className="flex flex-col w-full lg:w-2/5 p-4">
-              <p className="text-2xl md:text-3xl font-bold text-yellow-500 leading-relaxed md:leading-snug">
+              <p className="text-2xl md:text-3xl font-bold text-zinc-900 leading-relaxed md:leading-snug">
                 Philip Davidsson
               </p>
-              <p className="font-sans text-sm md:text-md my-2 md:my-3">
+              <p className="font-sans text-sm md:text-md my-2 md:my-3 text-gray-700">
                 <svg
                   className="inline-block fill-current mr-2"
                   xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ const AboutPage = () => {
                 </svg>
                 Hilversum
               </p>
-              <p className="font-sans text-sm md:text-md my-2 md:my-3">
+              <p className="font-sans text-sm md:text-md my-2 md:my-3 text-gray-700">
                 <svg
                   className="inline-block fill-current mr-2"
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ const AboutPage = () => {
                 </svg>{" "}
                 davidssonphilipjohan@gmail.com
               </p>
-              <p className="font-sans text-sm md:text-md my-2 md:my-4">
+              <p className="font-sans text-sm md:text-md my-2 md:my-4 text-gray-700">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>

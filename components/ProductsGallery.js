@@ -3,6 +3,7 @@ import CategoryButtons from "./CategoryButtons"
 
 const ProductsGallery = ({ products }) => {
 
+  const newProducts = [];
   products.map((prod) => {
     const newProd = prod;
     newProd.src = prod.image.url;
@@ -19,7 +20,7 @@ const ProductsGallery = ({ products }) => {
     <>
     <CategoryButtons  />
     <div className="container mt-8" id="products-gallery">
-        <Gallery photos={newProducts} direction={"column"} onClick={goToSlug} margin={10} />
+        <Gallery photos={newProducts} direction={"column"} onClick={goToSlug} margin={2} columns={2} />
     </div>
     </>
   )

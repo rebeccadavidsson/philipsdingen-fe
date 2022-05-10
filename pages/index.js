@@ -40,8 +40,8 @@ const HomePage = () => {
     return (
         <div className="md:mt-24 mt-2 h-auto container">
             <div>
-                <h2 className="title-large text-left text-gray-100 ">Titel van mijn galerij</h2>
-                <p className="text-left text-zinc-100 w-auto ">
+                <h2 className="title-large text-left text-gray-800 ">Titel van mijn galerij</h2>
+                <p className="text-left text-zinc-700 w-auto ">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -108,11 +108,17 @@ const HomePage = () => {
                     <div className="w-full h-full md:col-span-1 flex">
                         <Fade bottom cascade>
                             <div className={"relative w-full h-full m-auto lg:m-0 lg:w-2/3 lg:mt-8 text-left"}>
-                                <h1 className="title-large text-zinc-300">Bos Bloemen</h1>
-                                <p className="text-zinc-400">
+                                <h1 className="title-large text-zinc-800">Bos Bloemen</h1>
+                                <p className="text-zinc-700">
                                     Stiekem bestaat dit schilderij al uit tienduizend schilderijen omdat
                                     ik altijd over mijn schilderijen heen schilder.
                                 </p>
+                                <div
+                                    className={"underline-animation hidden md:block mt-8 justify-end  py-2 font-bold text-zinc-700 float-left hover:cursor-pointer"}>
+                                    <Link href="/over-mij" to={"/over-mij"}>
+                                        <span>Over mij</span>
+                                    </Link>
+                                </div>
                             </div>
                         </Fade>
                     </div>
@@ -127,14 +133,14 @@ const HomePage = () => {
 
                     <Fade bottom cascade>
                         <div className="relative w-full h-full md:col-span-1">
-                            <h1 className="title-large text-zinc-300 md:text-right">Coole tekeningen</h1>
-                            <p className="text-zinc-400 md:text-right">
+                            <h1 className="title-large text-zinc-800 md:text-right">Coole tekeningen</h1>
+                            <p className="text-zinc-700 md:text-right">
                                 Tekening van mijn hoofd met een geweer of een extra paar
                                 hersenen want die heb ik wel nodig.
                                 Ik teken veel mensen want dat vind ik leuk.
                             </p>
                             <div
-                                className={"hidden md:block float-right mt-8 w-auto justify-end px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:shadow-outline hover:cursor-pointer"}>
+                                className={"underline-animation hidden md:block float-right mt-8 w-auto justify-end px-4 py-2 font-bold text-zinc-700 rounded  hover:cursor-pointer"}>
                                 <Link href="/galerij">
                                     <span>Bekijk alles</span>
                                 </Link>
@@ -146,7 +152,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div
-                    className={"md:hidden block mt-8 float-right w-auto justify-end px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:shadow-outline hover:cursor-pointer"}>
+                    className={"md:hidden block underline-animation mt-8 float-right w-auto justify-end px-4 py-2 font-bold text-zinc-600"}>
                     <Link href="/galerij">
                         <span>Bekijk alles</span>
                     </Link>
