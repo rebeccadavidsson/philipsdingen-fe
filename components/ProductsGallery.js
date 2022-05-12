@@ -1,7 +1,10 @@
 import Gallery from 'react-photo-gallery'
 import CategoryButtons from "./CategoryButtons"
+import useWindowDimensions from "../utils/useWindowDimensions";
 
 const ProductsGallery = ({ products }) => {
+
+  const { width } = useWindowDimensions()
 
   const newProducts = [];
   products.map((prod) => {
@@ -20,7 +23,7 @@ const ProductsGallery = ({ products }) => {
     <>
     <CategoryButtons  />
     <div className="container mt-8" id="products-gallery">
-        <Gallery photos={newProducts} direction={"column"} onClick={goToSlug} margin={2} columns={2} />
+        <Gallery photos={newProducts} direction={"column"} onClick={goToSlug} margin={2} columns={width > 768 ? 3 : 2} />
     </div>
     </>
   )
