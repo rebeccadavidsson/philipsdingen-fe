@@ -50,8 +50,8 @@ body, html {
     position: absolute;
     right: 15px;
     bottom: 0;
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,0.080071165966386555) 4%, rgba(253,29,29,0.08989933473389356) 40%, rgba(252,176,69,0.18634191176470584) 100%);
+    background: rgba(131,58,180, 0.4);
+    background: linear-gradient(90deg, rgba(131,58,180,0.060071165966386555) 4%, rgba(253,29,29,0.06989933473389356) 40%, rgba(252,176,69,0.18634191176470584) 100%);
     width: 4px;
     height: 40px;
 }
@@ -60,7 +60,7 @@ body, html {
     background-image: url("../public/animated_shapes.svg");
     background-repeat: no-repeat;
     position: absolute;
-    opacity: 0.35;
+    opacity: 0.15;
     top: 0;
     left: 0;
     width: 100vw;

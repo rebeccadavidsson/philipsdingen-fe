@@ -16,19 +16,21 @@ import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
 
 import Fade from 'react-reveal/Fade';
-import { HomePageProducts } from "../utils/initialProduct";
+import bloemen from '../public/bloemen.png';
+import steen from '../public/steen.png';
+import groen from '../public/groen.png';
 
 const HomePage = () => {
 
     function getElements() {
         return <>
-            {HomePageProducts.map((_product) => (
+            {[bloemen, steen, groen].map((_product) => (
                 <SwiperSlide key={_product.id}>
                     <NextImage
-                        blurDataURL={_product.src}
-                        src={_product.src}
-                        height={1600}
-                        width={1300}
+                        blurDataURL={true}
+                        src={_product}
+                        width={400}
+                        height={600}
                         objectFit={"cover"}
                         priority={true}
                     />

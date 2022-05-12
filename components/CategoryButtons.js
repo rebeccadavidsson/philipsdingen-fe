@@ -38,7 +38,7 @@ const CategoryButtons = ({categories = []}) => {
     }
 
     return (
-        <div className="container flex flex-wrap mx-auto gap-2 mt-8 justify-center">
+        <div className="container flex flex-wrap mx-auto gap-2 md:mt-8 justify-center">
             {categories.map((_category) => (
                 <Link href={getHref(_category)}
                       key={_category.id}>
