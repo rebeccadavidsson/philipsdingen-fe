@@ -40,13 +40,15 @@ const HomePage = () => {
     return (
         <div className="md:mt-24 mt-2 h-auto container">
             <div>
-                <h2 className="title-large text-left text-gray-800 ">Titel van mijn galerij</h2>
-                <p className="text-left text-zinc-700 w-auto ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
-                </p>
+                <div className={"md:p-8"}>
+                    <h2 className="title-large text-left text-gray-800 ">Titel van mijn galerij</h2>
+                    <p className="text-left text-zinc-700 w-auto ">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </p>
+                </div>
                 <div id="swiper-wrapper" className="h-full mt-12">
                     <div className="md:hidden">
                         <Swiper

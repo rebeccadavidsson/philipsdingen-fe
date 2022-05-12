@@ -87,10 +87,10 @@ const ProductPage = ({product}) => {
             </div>
             <div className="w-full p-5 flex flex-col justify-between">
                 <div className="mb-4">
-                    <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-gray-100 text-bold">
+                    <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-gray-900 text-bold">
                         {product.title} - €{product.price}
                     </h4>
-                    <div className="mt-1 mb-8 text-gray-200">{product.description}</div>
+                    <div className="mt-1 mb-8 text-gray-600">{product.description}</div>
                     {/*<button*/}
                     {/*    onClick={async () => handleUseProduct(product)}*/}
                     {/*    className="w-full px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:shadow-outline">*/}

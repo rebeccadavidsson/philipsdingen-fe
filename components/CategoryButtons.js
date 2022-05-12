@@ -29,20 +29,11 @@ const CategoryButtons = ({categories = []}) => {
                 name: 'Tekening',
                 id: 10
             },
-            {
-                slug: 'alles',
-                name: 'Alles',
-                id: 11
-            },
         ];
     }
 
 
     function getHref(_category) {
-        const galleryUrl = '/galerij';
-        if (_category.slug === 'alles') {
-            return galleryUrl;
-        }
         return activeCategory === _category.slug ? '/galerij' : `/categories/${_category.slug}`;
     }
 
