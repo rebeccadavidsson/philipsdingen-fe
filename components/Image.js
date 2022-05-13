@@ -6,7 +6,7 @@ const Image = (props) => {
         return <NextImage {...props} />
     }
 
-    const {url, alternativeText} = props.media
+    const { url, alternativeText } = props.media
 
     const loader = ({src}) => {
         return getStrapiMedia(src)
@@ -15,9 +15,10 @@ const Image = (props) => {
     return (
         <NextImage
             loader={loader}
+            unoptimized={true}
             layout="responsive"
-            placeholder={props.blurDataURL ? 'blur' : ''}
-            blurDataURL={props.blurDataURL ?? ''}
+            placeholder={'blur'}
+            blurDataURL={props.blurDataURL ? props.blurDataURL : ''}
             priority={props.priority ?? false}
             objectFit={props.objectFit ? props.objectFit : "contain"}
             width={props.width ? props.width : props.media.width}

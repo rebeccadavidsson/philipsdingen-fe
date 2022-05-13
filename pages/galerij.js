@@ -1,6 +1,5 @@
 import Head from "next/head"
 import { getProducts } from "../utils/api"
-// import ProductsList from "../components/ProductsList"
 import ProductsGallery from "../components/ProductsGallery";
 
 const HomePage = ({ products }) => {

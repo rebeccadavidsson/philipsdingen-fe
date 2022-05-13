@@ -17,18 +17,31 @@ import "swiper/css/effect-coverflow"
 
 import Fade from 'react-reveal/Fade';
 import bloemen from '../public/bloemen.png';
-import steen from '../public/steen.png';
+import bloemenOptimized from '../public/min-bloemen.png';
+import steenOptimized from '../public/min-steen.png';
+import groenOptimized from '../public/min-groen.png';
 import groen from '../public/groen.png';
 
 const HomePage = () => {
 
+    const homepageImages = [{
+        image: bloemen,
+        blurImage: bloemenOptimized
+    }, {
+        image: steenOptimized,
+        blurImage: steenOptimized
+    }, {
+        image: groen,
+        blurImage: groenOptimized
+    }];
+
     function getElements() {
         return <>
-            {[bloemen, steen, groen].map((_product) => (
-                <SwiperSlide key={_product.id}>
+            {homepageImages.map((_product, index) => (
+                <SwiperSlide key={index}>
                     <NextImage
-                        blurDataURL={true}
-                        src={_product}
+                        blurDataUrl={_product.blurImage}
+                        src={_product.image}
                         width={400}
                         height={600}
                         objectFit={"cover"}
@@ -46,9 +59,7 @@ const HomePage = () => {
                     <h2 className="title-large text-left text-gray-800 ">Titel van mijn galerij</h2>
                     <p className="text-left text-zinc-700 w-auto ">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                 </div>
                 <div id="swiper-wrapper" className="h-full mt-12">
