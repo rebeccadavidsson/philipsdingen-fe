@@ -8,3 +8,5 @@ export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337"
 
 export const NEXT_PUBLIC_STRAPI_API_URL='https://philipsdingen.herokuapp.com'
+
+export const CLOUDINARY_NAME = process.env.CLOUDINARY_NAME || 'dsbvl9mtl';
