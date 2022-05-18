@@ -17,8 +17,6 @@ const Image = (props) => {
             loader={loader}
             unoptimized={true}
             layout="responsive"
-            placeholder={'blur'}
-            blurDataURL={props.blurDataURL ? props.blurDataURL : ''}
             priority={props.priority ?? false}
             objectFit={props.objectFit ? props.objectFit : "contain"}
             width={props.width ? props.width : props.media.width}

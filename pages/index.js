@@ -163,7 +163,7 @@ const HomePage = () => {
                         </div>
                     </Fade>
                     <div className="md:col-span-1 shadow-image">
-                        <NextImage blurDataURL={'/hoofd-robot.jpeg'} src={'/hoofd-robot.jpeg'} height={500} width={500}/>
+                        <NextImage src={'/groen.png'} height={700} width={500}/>
                     </div>
                 </div>
                 <div

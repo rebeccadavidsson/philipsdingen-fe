@@ -4,6 +4,7 @@ import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
 // import { AuthProvider } from '../context/AuthContext'
+import { PageTransition } from 'next-page-transitions';
 
 const MyApp = ({ Component, pageProps }) => {
 
@@ -16,7 +17,9 @@ const MyApp = ({ Component, pageProps }) => {
           <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
 
         </Head>
-        <Component {...pageProps} />
+          <PageTransition timeout={300} classNames="page-transition">
+          <Component {...pageProps} />
+        </PageTransition>
       </Layout>
     </>
   )
