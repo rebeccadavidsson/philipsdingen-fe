@@ -1,4 +1,14 @@
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+
 const AboutPage = () => {
+
+  const {theme} = useTheme();
+  const [textColorCodes, setTextColorCodes] = useState({primary: 600, secondary: 600});
+  useEffect(() => {
+    setTextColorCodes(theme === 'dark' ? {primary: 500, secondary: 600} : {primary: 800, secondary: 700})
+  }, [theme])
+
 
   return (
     <>
@@ -13,10 +23,10 @@ const AboutPage = () => {
               />
             </div>
             <div className="flex flex-col w-full lg:w-2/5 p-4">
-              <p className="text-2xl md:text-3xl font-bold text-zinc-900 leading-relaxed md:leading-snug">
+              <p className={`text-2xl md:text-3xl font-bold leading-relaxed md:leading-snug ${textColorCodes.primary}`}>
                 Philip Davidsson
               </p>
-              <p className="font-sans text-sm md:text-md my-2 md:my-3 text-gray-700">
+              <p className={`font-sans text-sm md:text-md my-2 md:my-3 ${textColorCodes.secondary}`}>
                 <svg
                   className="inline-block fill-current mr-2"
                   xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +38,7 @@ const AboutPage = () => {
                 </svg>
                 Hilversum
               </p>
-              <p className="font-sans text-sm md:text-md my-2 md:my-3 text-gray-700">
+              <p className={`font-sans text-sm md:text-md my-2 md:my-3 ${textColorCodes.secondary}`}>
                 <svg
                   className="inline-block fill-current mr-2"
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +50,7 @@ const AboutPage = () => {
                 </svg>{" "}
                 davidssonphilipjohan@gmail.com
               </p>
-              <p className="font-sans text-sm md:text-md my-2 md:my-4 text-gray-700">
+              <p className={`font-sans text-sm md:text-md my-2 md:my-4 ${textColorCodes.secondary}`}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>

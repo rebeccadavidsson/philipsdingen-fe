@@ -1,13 +1,19 @@
 import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 const CategoryButtons = ({categories = []}) => {
 
     const [activeCategory, setActiveCategory] = useState('');
     const router = useRouter()
 
+    const {theme} = useTheme();
+    const [textColorCodes, setTextColorCodes] = useState({primary: 800, secondary: 700});
+
     useEffect(() => {
+        setTextColorCodes(theme === 'dark' ? {primary: 100, secondary: 300} : {primary: 800, secondary: 700})
+
         const path = router.asPath;
         if (path && path.includes('categories')) {
             const splitPath = path.split('/');
@@ -15,7 +21,7 @@ const CategoryButtons = ({categories = []}) => {
                 setActiveCategory(router.asPath.split('/')[2]);
             }
         }
-    });
+    }, [theme]);
 
     if (categories.length <= 0) {
         categories = [
@@ -44,7 +50,7 @@ const CategoryButtons = ({categories = []}) => {
                       key={_category.id}>
                     <a
                         onClick={() => setActiveCategory(_category.slug)}
-                        className={"px-4 py-2 bg-transparent font-bold text-zinc-700 rounded underline-animation " + (activeCategory === _category.slug && 'underline')}>
+                        className={"px-4 py-2 bg-transparent font-bold rounded underline-animation text-zinc-" + textColorCodes.primary + " " + (activeCategory === _category.slug && 'underline')}>
                         {_category.name}
                     </a>
                 </Link>

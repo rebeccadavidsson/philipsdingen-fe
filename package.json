@@ -16,6 +16,7 @@
     "magic-sdk": "^8.1.0",
     "next": "^12.1.5",
     "next-page-transitions": "^1.0.0-beta.2",
+    "next-themes": "^0.2.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "pro-gallery": "^3.1.38",

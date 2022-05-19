@@ -2,19 +2,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
-.background-image {
-    background-attachment: fixed;
-    background-size: cover;
- }
-
-.section-with-background {
-    position: relative;
+html {
+    transition-duration: 0.2s;
 }
 
-html {
-    background: rgba(131,58,180, 0.04) !important;
-    background: linear-gradient(90deg, rgba(131,58,180,0.06071165966386555) 0%, rgba(253,29,29,0.06989933473389356) 50%, rgba(252,176,69,0.06869485294117652) 100%), linear-gradient(189deg, rgba(255,255,255,0) 0%, rgba(138,119,77,0.1570952497209821) 100%);
+body {
+    transition-duration: 0.5s;
 }
 
 @media screen and (min-width: 760px) {
@@ -33,6 +26,17 @@ html {
         width: 100vw;
         height: 100%;
     }
+}
+
+
+.background-image {
+    transition-duration: 0.6s;
+    background-attachment: fixed;
+    background-size: cover;
+ }
+
+.section-with-background {
+    position: relative;
 }
 
 
@@ -147,4 +151,8 @@ html {
 .page-transition-exit-active {
     opacity: 0;
     transition: opacity 300ms;
+}
+
+.bg-custom-dark {
+    background-color: #000032;
 }

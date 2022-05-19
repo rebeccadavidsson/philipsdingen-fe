@@ -1,6 +1,8 @@
 import { getProducts } from "../utils/api"
 import Link from "next/link"
 import NextImage from "../components/Image"
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 // import required modules
 import { EffectCoverflow, EffectCube, Pagination, Autoplay } from "swiper"
@@ -22,7 +24,15 @@ import steenOptimized from '../public/min-steen.png';
 import groenOptimized from '../public/min-groen.png';
 import groen from '../public/groen.png';
 
+
 const HomePage = () => {
+
+    const {theme} = useTheme();
+    const [textColorCodes, setTextColorCodes] = useState({primary: 600, secondary: 600});
+    useEffect(() => {
+        setTextColorCodes(theme === 'dark' ? {primary: 500, secondary: 600} : {primary: 800, secondary: 700})
+    }, [theme])
+
 
     const homepageImages = [{
         image: bloemen,
@@ -56,10 +66,10 @@ const HomePage = () => {
         <div className="md:mt-24 mt-2 h-auto container">
             <div>
                 <div className={"md:p-8"}>
-                    <h2 className="title-large text-left text-gray-800 ">Titel van mijn galerij</h2>
-                    <p className="text-left text-zinc-700 w-auto ">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
+                    <h2 className={`title-large text-left text-zinc-${textColorCodes.secondary}`}>Philip's galerij</h2>
+                    <p className={`text-left w-auto text-zinc-${textColorCodes.secondary}`}>
+                        Ik heb eigenlijk te weinig schilder-doeken om meer schilderijen te maken dus hier zie je er nu
+                        maar 3. Maar eigenlijk zijn dat er dus 20 ongeveer. Ik maak ook soms tekeningen. Soms.
                     </p>
                 </div>
                 <div id="swiper-wrapper" className="h-full mt-12">
@@ -123,13 +133,13 @@ const HomePage = () => {
                     <div className="w-full h-full md:col-span-1 flex">
                         <Fade bottom cascade>
                             <div className={"relative w-full h-full m-auto lg:m-0 lg:w-2/3 lg:mt-8 text-left"}>
-                                <h1 className="title-large text-zinc-800">Bos Bloemen</h1>
-                                <p className="text-zinc-700">
+                                <h1 className={`title-large text-zinc-${textColorCodes.secondary}`}>Bos Bloemen</h1>
+                                <p className={`text-zinc-${textColorCodes.secondary + 100}`}>
                                     Stiekem bestaat dit schilderij al uit tienduizend schilderijen omdat
                                     ik altijd over mijn schilderijen heen schilder.
                                 </p>
                                 <div
-                                    className={"underline-animation hidden md:block mt-8 justify-end  py-2 font-bold text-zinc-700 float-left hover:cursor-pointer"}>
+                                    className={`underline-animation hidden md:block mt-8 justify-end  py-2 font-bold float-left hover:cursor-pointer text-zinc-${textColorCodes.secondary + 100}`}>
                                     <Link href="/over-mij" to={"/over-mij"}>
                                         <span>Over mij</span>
                                     </Link>
@@ -148,14 +158,14 @@ const HomePage = () => {
 
                     <Fade bottom cascade>
                         <div className="relative w-full h-full md:col-span-1">
-                            <h1 className="title-large text-zinc-800 md:text-right">Coole tekeningen</h1>
-                            <p className="text-zinc-700 md:text-right">
+                            <h1 className={`title-large text-zinc-${textColorCodes.secondary} md:text-right`}>Coole tekeningen</h1>
+                            <p  className={`md:text-right text-zinc-${textColorCodes.secondary + 100}`}>
                                 Tekening van mijn hoofd met een geweer of een extra paar
                                 hersenen want die heb ik wel nodig.
                                 Ik teken veel mensen want dat vind ik leuk.
                             </p>
                             <div
-                                className={"underline-animation hidden md:block float-right mt-8 w-auto justify-end px-4 py-2 font-bold text-zinc-700 rounded  hover:cursor-pointer"}>
+                                className={`underline-animation hidden md:block float-right mt-8 w-auto justify-end px-4 py-2 font-bold rounded hover:cursor-pointer text-zinc-${textColorCodes.secondary + 100}\``}>
                                 <Link href="/galerij">
                                     <span>Bekijk alles</span>
                                 </Link>
@@ -167,7 +177,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div
-                    className={"md:hidden block underline-animation mt-8 float-right w-auto justify-end px-4 py-2 font-bold text-zinc-600"}>
+                    className={`md:hidden block underline-animation mt-8 float-right w-auto justify-end px-4 py-2 font-bold text-zinc-${textColorCodes.secondary + 100}`}>
                     <Link href="/galerij">
                         <span>Bekijk alles</span>
                     </Link>
@@ -183,4 +193,4 @@ export async function getStaticProps() {
     return {props: {products}}
 }
 
-export default HomePage
+export default HomePage;

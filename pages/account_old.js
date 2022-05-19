@@ -87,7 +87,7 @@ const Account = () => {
                 </div>
                 <div className="w-full p-5 flex flex-col justify-between">
                   <div>
-                    <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-gray-700">
+                    <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-grey-700">
                       {order.product.title} - €{order.product.price}
                     </h4>
                     <div className="mt-1 text-gray-600">{order.product.description}</div>
