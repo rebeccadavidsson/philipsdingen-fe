@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 // import required modules
-import { EffectCoverflow, EffectCube, Pagination, Autoplay } from "swiper"
+import { EffectCoverflow, EffectCube, Pagination, Autoplay, EffectCards } from "swiper"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -14,6 +14,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/effect-cube";
+import "swiper/css/effect-cards";
 import "swiper/css/scrollbar"
 import "swiper/css/effect-coverflow"
 
@@ -23,15 +24,25 @@ import bloemenOptimized from '../public/min-bloemen.png';
 import steenOptimized from '../public/min-steen.png';
 import groenOptimized from '../public/min-groen.png';
 import groen from '../public/groen.png';
+import { useParallax } from "react-scroll-parallax";
+import useWindowDimensions from "../utils/useWindowDimensions";
 
 
 const HomePage = () => {
 
+    const {width} = useWindowDimensions()
     const {theme} = useTheme();
     const [textColorCodes, setTextColorCodes] = useState({primary: 600, secondary: 600});
     useEffect(() => {
         setTextColorCodes(theme === 'dark' ? {primary: 500, secondary: 600} : {primary: 800, secondary: 700})
     }, [theme])
+
+    const parallaxFirst = useParallax({
+        speed: -10,
+    });
+    const parallaxSecond = useParallax({
+        speed: -10,
+    });
 
 
     const homepageImages = [{
@@ -45,15 +56,17 @@ const HomePage = () => {
         blurImage: groenOptimized
     }];
 
-    function getElements() {
+    function getElements(scale) {
+        if (scale === undefined) {
+            scale = 1;
+        }
         return <>
             {homepageImages.map((_product, index) => (
                 <SwiperSlide key={index}>
                     <NextImage
-                        blurDataUrl={_product.blurImage}
                         src={_product.image}
-                        width={400}
-                        height={600}
+                        width={400 * scale}
+                        height={600 * scale}
                         objectFit={"cover"}
                         priority={true}
                     />
@@ -63,11 +76,11 @@ const HomePage = () => {
     }
 
     return (
-        <div className="md:mt-24 mt-2 h-auto container">
+        <div className="md:mt-20 mt-2 h-auto container">
             <div>
                 <div className={"md:p-8"}>
-                    <h2 className={`title-large text-left text-zinc-${textColorCodes.secondary}`}>Philip's galerij</h2>
-                    <p className={`text-left w-auto text-zinc-${textColorCodes.secondary}`}>
+                    <h2 className={`hidden sm:block title-large text-center text-zinc-${textColorCodes.secondary}`}><strong>PHILIPS</strong>DINGEN</h2>
+                    <p className={`text-center sm:pr-10 sm:pl-10 text-zinc-${textColorCodes.secondary - 200}`}>
                         Ik heb eigenlijk te weinig schilder-doeken om meer schilderijen te maken dus hier zie je er nu
                         maar 3. Maar eigenlijk zijn dat er dus 20 ongeveer. Ik maak ook soms tekeningen. Soms.
                     </p>
@@ -126,7 +139,7 @@ const HomePage = () => {
                 <div
                     className="justify-center h-full flex grid grid-cols-1 md:grid-cols-2 gap-16">
 
-                    <div className="md:col-span-1 shadow-image">
+                    <div className="md:col-span-1 shadow-image" ref={width > 768 ? parallaxFirst.ref : undefined}>
                         <NextImage src={'/bloemen.png'} height={600} width={400}/>
                     </div>
 
@@ -172,7 +185,7 @@ const HomePage = () => {
                             </div>
                         </div>
                     </Fade>
-                    <div className="md:col-span-1 shadow-image">
+                    <div className="md:col-span-1 shadow-image" ref={width > 768 ? parallaxSecond.ref : undefined}>
                         <NextImage src={'/groen.png'} height={700} width={500}/>
                     </div>
                 </div>
@@ -183,6 +196,10 @@ const HomePage = () => {
                     </Link>
                 </div>
             </section>
+
+
+            <div className="hidden" ref={width <= 768 ? parallaxFirst.ref : undefined}></div>
+            <div className="hidden" ref={width <= 768 ? parallaxSecond.ref : undefined}></div>
 
         </div>
     )

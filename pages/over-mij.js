@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { NextImage } from "../components/Image"
 
 const AboutPage = () => {
 
@@ -12,16 +13,9 @@ const AboutPage = () => {
 
   return (
     <>
-      <div className="container mx-auto pt-24">
+      <div className="container mx-auto sm:pt-24">
         <div>
           <div className="grid-cols-1 md:flex md:grid-cols-2 relative gap-4">
-            <div className="md:hidden w-full md:w-2/3 justify-right relative flex-col ">
-              <img
-                  src="https://res.cloudinary.com/dsbvl9mtl/image/upload/v1651395255/philip_zizmok.jpg"
-                  alt="philip"
-                  className="rounded justify-right"
-              />
-            </div>
             <div className="flex flex-col w-full lg:w-2/5 p-4">
               <p className={`text-2xl md:text-3xl font-bold leading-relaxed md:leading-snug ${textColorCodes.primary}`}>
                 Philip Davidsson
@@ -55,12 +49,8 @@ const AboutPage = () => {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="hidden md:block w-full md:w-2/3 justify-right relative flex-col ">
-                <img
-                  src="https://res.cloudinary.com/dsbvl9mtl/image/upload/v1651395255/philip_zizmok.jpg"
-                  alt="philip"
-                  className="rounded justify-right"
-                />
+            <div className={` w-full md:w-2/3 justify-right relative flex-col philip-svg  ${theme && theme === 'dark' ? 'about-philip' : 'about-philip-dark'}`}>
+
             </div>
           </div>
         </div>

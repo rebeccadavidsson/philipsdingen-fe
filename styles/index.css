@@ -3,14 +3,14 @@
 @import 'tailwindcss/utilities';
 
 html {
-    transition-duration: 0.2s;
-}
-
-body {
     transition-duration: 0.5s;
 }
 
-@media screen and (min-width: 760px) {
+body {
+    transition-duration: 0.8s;
+}
+
+@media screen and (min-width: 786px) {
     body {
         background: linear-gradient(90deg, #0000 calc(100% - 3px), rgba(10, 10, 10, 0.03) 0);
         background-size: calc((100% - 5*1px)/6 + 1px) 100%;
@@ -20,11 +20,16 @@ body {
         background-image: url("../public/animated_shapes.svg");
         background-repeat: no-repeat;
         position: absolute;
-        opacity: 0.7;
+        opacity: 0.9;
+        filter: blur(10px);
         top: 0;
         left: 0;
         width: 100vw;
         height: 100%;
+    }
+
+    .philip-svg {
+        background-size: cover;
     }
 }
 
@@ -154,5 +159,25 @@ body {
 }
 
 .bg-custom-dark {
-    background-color: #000032;
+    background-color: #00001a;
+    animation-name: bgTransition;
+    animation-duration: 3s;
+}
+
+
+@keyframes bgTransition {
+    from {background-color: white;}
+    to {background-color: #00001a;}
+}
+
+.philip-svg {
+    background-repeat: no-repeat;
+    height: 500px;
+    background-size: contain;
+}
+.about-philip {
+    background-image: url("../public/pad.svg");
+}
+.about-philip-dark {
+    background-image: url("../public/pad_donker.svg");
 }

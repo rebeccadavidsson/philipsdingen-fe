@@ -3,29 +3,31 @@ import App from "next/app"
 import Head from "next/head"
 import Layout from "../components/Layout"
 import { getCategories } from "../utils/api"
-// import { AuthProvider } from '../context/AuthContext'
 import { ThemeProvider } from 'next-themes'
 import { PageTransition } from 'next-page-transitions';
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const MyApp = ({Component, pageProps}) => {
 
     return (
         <>
-        <ThemeProvider themes={['dark', 'light']} defaultTheme={'light'}>
-            <Layout categories={pageProps.categories}>
-                <Head>
-                    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
-                    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"/>
+            <ThemeProvider themes={['dark', 'light']} defaultTheme={'dark'}>
+                <ParallaxProvider>
+                    <Layout categories={pageProps.categories}>
+                        <Head>
+                            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+                            <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"/>
 
-                </Head>
+                        </Head>
 
-                    <PageTransition timeout={300} classNames="page-transition">
-                        <Component {...pageProps} />
-                    </PageTransition>
+                        <PageTransition timeout={300} classNames="page-transition">
+                            <Component {...pageProps} />
+                        </PageTransition>
 
-            </Layout>
-        </ThemeProvider>
+                    </Layout>
+                </ParallaxProvider>
+            </ThemeProvider>
         </>
     )
 }
