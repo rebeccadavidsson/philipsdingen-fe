@@ -89,7 +89,7 @@ body {
     opacity: 0.2;
     bottom: 0;
     left: 0;
-    width: 90vw;
+    width: min(90vw, 1178px);
     height: 900px;
 }
 
@@ -161,12 +161,10 @@ body {
 .bg-custom-dark {
     background-color: #00001a;
     animation-name: bgTransition;
-    animation-duration: 3s;
+    animation-duration: 1.2s;
 }
-
-
 @keyframes bgTransition {
-    from {background-color: white;}
+    from {background-color: #cbcbda;}
     to {background-color: #00001a;}
 }
 
